@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:music_playlist/module/song_list/domain/entities/song.dart';
 part 'song.g.dart';
 
 @JsonSerializable()
-class SongData {
+class SongData extends Equatable{
   @JsonKey(name: "trackId")
   int? songId;
 
@@ -40,4 +41,15 @@ class SongData {
       previewUrl ?? "",
       songTrackInTimeMillis ?? 0,
   );
+
+  @override
+  List<Object?> get props => [
+    songId,
+    artistName,
+    songName,
+    albumName,
+    albumArtUrl,
+    previewUrl,
+    songTrackInTimeMillis
+  ];
 }

@@ -29,7 +29,7 @@ class SongListSearchBar extends StatelessWidget {
           child: TextField(
             controller: songListProvider.searchController,
             onChanged: (value) async{
-              Provider.of<SongListProvider>(context,listen: false).fetchSong();
+              Provider.of<SongListProvider>(context,listen: false).fetchSong(value);
             },
             textAlignVertical: TextAlignVertical.center,
             decoration: const InputDecoration(

@@ -1,0 +1,22 @@
+{
+  "results" : [
+    {
+      "trackId": 1,
+      "artistName": "Justin Bieber",
+      "songName" : "Peaches",
+      "albumName": "Justice",
+      "albumArtUrl": "https://test",
+      "previewUrl": "https://preview",
+      "songTrackInTimeMillis" : 100
+    },
+    {
+      "trackId": 2,
+      "artistName": "Justin Bieber",
+      "songName" : "Ghost",
+      "albumName": "Justice",
+      "albumArtUrl": "https://test",
+      "previewUrl": "https://preview",
+      "songTrackInTimeMillis" : 100
+    }
+  ]
+}

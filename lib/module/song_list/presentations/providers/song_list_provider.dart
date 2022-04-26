@@ -15,7 +15,7 @@ class SongListProvider extends ChangeNotifier{
   Timer? _debounce;
 
   SongListProvider(this.getSongList) {
-    fetchSong();
+    fetchSong("");
   }
 
   /// Change loading state when fetch list of the songs
@@ -25,9 +25,9 @@ class SongListProvider extends ChangeNotifier{
   }
 
   /// Get Song Based On Artist Name
-  void fetchSong() async{
+  void fetchSong(String artistName) async{
     isFetchLoading = true;
-    String artistName = (searchController.text.isEmpty) ? "Justin Bieber" : searchController.text;
+    artistName = (artistName.isEmpty) ? "Justin Bieber" : searchController.text;
     try{
       final result = await getSongList.getSongListFromArtist(SongArtistName(artistName));
       song!.clear();
@@ -43,11 +43,11 @@ class SongListProvider extends ChangeNotifier{
   }
 
   /// Search Song & Triggered When Search Bar Value is Changed
-  void searchSongByArtistName() {
+  void searchSongByArtistName(String artistName) {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(seconds: 1), () {
       /// Fetch Song After 1 Second Waiting For Other Changes
-      fetchSong();
+      fetchSong(artistName);
     });
   }
 
